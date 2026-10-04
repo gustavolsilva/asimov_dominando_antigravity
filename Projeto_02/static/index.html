@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FIZZ — Água com gás saborizada em lata | Reserve a sua</title>
+  <meta name="description" content="FIZZ: água com gás saborizada em lata. Zero açúcar, zero calorias, 100% refrescante. Entre na lista e reserve o seu lote de lançamento.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+  <header class="nav">
+    <span class="logo">FIZZ<i>.</i></span>
+    <a href="#reserva" class="btn btn-sm" id="nav-cta">Reservar</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <span class="tag">Lançamento · Lote limitado</span>
+        <h1>Borbulhe <em>sem culpa.</em></h1>
+        <p>Água com gás saborizada em lata. Zero açúcar, zero calorias, zero adoçantes. Só sabor de verdade e muita crocância.</p>
+        <a href="#reserva" class="btn" id="hero-cta">Quero reservar a minha</a>
+      </div>
+      <div class="hero-can" aria-hidden="true">
+        <div class="can">
+          <div class="can-top"></div>
+          <div class="can-body"><span>FIZZ</span><small>Limão Siciliano<br>350 ml</small></div>
+        </div>
+        <div class="glow"></div>
+      </div>
+    </section>
+
+    <section class="features" id="beneficios">
+      <article><b>0</b><h2>Açúcar</h2><p>Sabor natural, sem adição de açúcar.</p></article>
+      <article><b>0</b><h2>Calorias</h2><p>Hidratação leve para o dia inteiro.</p></article>
+      <article><b>♻</b><h2>Lata reciclável</h2><p>Alumínio infinitamente reciclável.</p></article>
+    </section>
+
+    <section class="flavors" aria-labelledby="sabores">
+      <h2 id="sabores">Escolha seu sabor</h2>
+      <ul>
+        <li style="--c:#d7f034">Limão Siciliano</li>
+        <li style="--c:#ff7a8a">Frutas Vermelhas</li>
+        <li style="--c:#ffb347">Laranja &amp; Gengibre</li>
+        <li style="--c:#7be0c3">Pepino &amp; Hortelã</li>
+      </ul>
+    </section>
+
+    <section class="reserve" id="reserva">
+      <div class="card">
+        <h2>Entre na lista de reserva</h2>
+        <p>Seja avisado primeiro e garanta seu kit de lançamento.</p>
+        <form id="form" novalidate>
+          <label>Nome completo
+            <input id="nome" name="nome" autocomplete="name" placeholder="Maria da Silva" required>
+          </label>
+          <label>E-mail
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="voce@email.com" required>
+          </label>
+          <label>Celular
+            <input id="celular" name="celular" type="tel" autocomplete="tel" placeholder="(11) 91234-5678" required>
+          </label>
+          <button class="btn" id="submit" type="submit">Reservar agora</button>
+          <p class="msg" id="msg" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 FIZZ · Beba com moderação de tédio.</footer>
+  <script src="script.js"></script>
+</body>
+</html>

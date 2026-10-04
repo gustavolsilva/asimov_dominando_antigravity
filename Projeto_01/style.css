@@ -1,0 +1,810 @@
+/* =====================================================================
+   SPACE IMPACT - NOKIA 3310 AUTHENTIC RETRO STYLING
+   ===================================================================== */
+
+:root {
+  /* Paleta Nokia Clássica */
+  --nokia-body-primary: #273b52;
+  --nokia-body-secondary: #1a2736;
+  --nokia-bezel: #d0d7de;
+  --nokia-bezel-shadow: #88929e;
+  --nokia-key-bg: #e2e8f0;
+  --nokia-key-text: #1e293b;
+  --nokia-key-active: #cbd5e1;
+
+  /* LCD Temas (Padrão: Verde Nokia 3310) */
+  --lcd-bg: #879b47;
+  --lcd-bg-glow: #9db255;
+  --lcd-pixel: #16240d;
+  --lcd-pixel-faded: rgba(22, 36, 13, 0.15);
+  --lcd-pixel-grid: rgba(0, 0, 0, 0.08);
+
+  /* Modern Ambient */
+  --bg-dark: #0a0e17;
+  --bg-card: rgba(18, 24, 38, 0.85);
+  --border-card: rgba(255, 255, 255, 0.08);
+  --accent-cyan: #38bdf8;
+  --accent-green: #4ade80;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-digital: 'VT323', monospace;
+  --font-modern: 'Outfit', sans-serif;
+}
+
+/* Modos de LCD */
+body.theme-cyan {
+  --lcd-bg: #4a949e;
+  --lcd-bg-glow: #5eb0bc;
+  --lcd-pixel: #0c2327;
+  --lcd-pixel-faded: rgba(12, 35, 39, 0.15);
+}
+
+body.theme-amber {
+  --lcd-bg: #d97706;
+  --lcd-bg-glow: #f59e0b;
+  --lcd-pixel: #2b1103;
+  --lcd-pixel-faded: rgba(43, 17, 3, 0.15);
+}
+
+body.theme-bw {
+  --lcd-bg: #cfd6df;
+  --lcd-bg-glow: #e2e8f0;
+  --lcd-pixel: #0f172a;
+  --lcd-pixel-faded: rgba(15, 23, 42, 0.12);
+}
+
+body.theme-matrix {
+  --lcd-bg: #0d2818;
+  --lcd-bg-glow: #164024;
+  --lcd-pixel: #52b788;
+  --lcd-pixel-faded: rgba(82, 183, 136, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: var(--font-modern);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Fundo espacial dinâmico */
+.background-ambient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.stars-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 150px 80px, #38bdf8, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 300px 220px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 450px 140px, #a855f7, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 600px 400px, #ffffff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 800px 250px, #38bdf8, rgba(0,0,0,0));
+  background-size: 500px 500px;
+  opacity: 0.6;
+}
+
+.nebula-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 70% 30%, rgba(56, 189, 248, 0.12), transparent 45%),
+              radial-gradient(circle at 20% 80%, rgba(168, 85, 247, 0.12), transparent 50%);
+}
+
+.app-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  width: 100%;
+}
+
+/* =====================================================================
+   HEADER & TOP NAV
+   ===================================================================== */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  margin-bottom: 1.5rem;
+}
+
+.brand-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.badge {
+  background: linear-gradient(135deg, #1e3a8a, #0284c7);
+  color: #fff;
+  font-family: var(--font-pixel);
+  font-size: 0.65rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(2, 132, 199, 0.4);
+}
+
+.brand-title h1 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.brand-title h1 span {
+  color: var(--accent-cyan);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding-left: 0.25rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.header-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-main);
+  padding: 0.5rem 0.9rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: var(--font-modern);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: var(--accent-cyan);
+  transform: translateY(-1px);
+}
+
+/* =====================================================================
+   MAIN STAGE: NOKIA 3310 & SIDEBAR
+   ===================================================================== */
+.main-stage {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  justify-content: center;
+}
+
+@media (max-width: 950px) {
+  .main-stage {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}
+
+/* =====================================================================
+   O LENDÁRIO NOKIA 3310
+   ===================================================================== */
+.phone-wrapper {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+}
+
+.nokia-body {
+  width: 380px;
+  background: linear-gradient(180deg, #334960 0%, #203144 45%, #152230 100%);
+  border-radius: 54px 54px 70px 70px;
+  padding: 1.25rem 1.75rem 2rem;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.65),
+    0 0 0 2px #496380 inset,
+    0 -4px 10px rgba(0, 0, 0, 0.5) inset,
+    0 4px 12px rgba(255, 255, 255, 0.15) inset;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border: 3px solid #141e2a;
+}
+
+/* Detalhes topo */
+.phone-top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.power-button {
+  width: 44px;
+  height: 5px;
+  background: #111a24;
+  border-radius: 3px 3px 0 0;
+  margin-top: -1.3rem;
+  margin-bottom: 0.5rem;
+  box-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.speaker-grill {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 0.5rem;
+}
+
+.speaker-grill span {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: #0f1722;
+  border-radius: 50%;
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.nokia-logo {
+  font-family: var(--font-modern);
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 3px;
+  color: #cdd6e0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Moldura e Tela LCD */
+.screen-bezel {
+  width: 100%;
+  background: linear-gradient(180deg, #dce2e8 0%, #a6b2be 50%, #8794a3 100%);
+  border-radius: 28px;
+  padding: 12px 14px;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    0 1px 2px rgba(255, 255, 255, 0.8) inset,
+    0 -2px 4px rgba(0, 0, 0, 0.3) inset;
+  border: 2px solid #5a6674;
+}
+
+.screen-inner-frame {
+  background: #1a2028;
+  padding: 6px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6) inset;
+}
+
+.lcd-screen {
+  width: 100%;
+  height: 192px;
+  background: var(--lcd-bg);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 0 16px var(--lcd-bg-glow) inset,
+    0 2px 4px rgba(0, 0, 0, 0.4) inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+/* Grid de pontos LCD clássico */
+.pixel-matrix-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(var(--lcd-pixel-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--lcd-pixel-grid) 1px, transparent 1px);
+  background-size: 4px 4px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.screen-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 6;
+  border-radius: 10px 10px 0 0;
+}
+
+#gameCanvas {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  display: block;
+  z-index: 2;
+}
+
+/* Overlay dentro da tela */
+.screen-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(135, 155, 71, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 10;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+body.theme-cyan .screen-overlay { background: rgba(74, 148, 158, 0.88); }
+body.theme-amber .screen-overlay { background: rgba(217, 119, 6, 0.88); }
+body.theme-bw .screen-overlay { background: rgba(207, 214, 223, 0.92); }
+body.theme-matrix .screen-overlay { background: rgba(13, 40, 24, 0.92); }
+
+.screen-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.overlay-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  color: var(--lcd-pixel);
+}
+
+.game-logo-text {
+  font-family: var(--font-pixel);
+  font-size: 1.1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.blinking-prompt {
+  font-family: var(--font-pixel);
+  font-size: 0.55rem;
+  animation: retroBlink 1s infinite steps(1);
+}
+
+.hi-score-display {
+  font-family: var(--font-digital);
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+@keyframes retroBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* =====================================================================
+   BOTÕES E TECLADO DO NOKIA
+   ===================================================================== */
+.phone-control-cluster {
+  width: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.soft-keys-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.nokia-key {
+  background: linear-gradient(180deg, #e9eff5 0%, #cbd5e1 100%);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 6px rgba(0, 0, 0, 0.4),
+    0 1px 1px rgba(255, 255, 255, 0.9) inset,
+    0 -2px 3px rgba(0, 0, 0, 0.2) inset;
+  color: var(--nokia-key-text);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.08s ease;
+  outline: none;
+}
+
+.nokia-key:active, .nokia-key.active-press {
+  transform: translateY(2px);
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 1px 2px rgba(0, 0, 0, 0.3) inset;
+  background: #b5c2d1;
+}
+
+.key-nav-up, .key-nav-down {
+  width: 80px;
+  height: 28px;
+  border-radius: 8px;
+}
+
+.arrow-glyph {
+  font-size: 0.75rem;
+  color: #475569;
+}
+
+.key-soft-left, .key-soft-right {
+  height: 38px;
+}
+
+.key-c {
+  height: 38px;
+  background: linear-gradient(180deg, #f1f5f9 0%, #cbd5e1 100%);
+  font-weight: 800;
+  font-family: var(--font-modern);
+}
+
+.key-bar {
+  font-size: 1.1rem;
+  color: #475569;
+  line-height: 1;
+}
+
+.key-label {
+  font-size: 1.1rem;
+  color: #b91c1c;
+  font-weight: 900;
+}
+
+/* Teclado 3x4 */
+.keypad-grid {
+  width: 100%;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+.num-key {
+  height: 52px;
+  border-radius: 14px;
+  padding: 0.2rem 0;
+}
+
+.num-key .key-num {
+  font-family: var(--font-modern);
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #0f172a;
+}
+
+.num-key .key-sub {
+  font-family: var(--font-modern);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #64748b;
+}
+
+.num-key.primary-fire {
+  background: linear-gradient(180deg, #ffffff 0%, #d8e2ec 100%);
+  border: 1px solid #94a3b8;
+}
+
+.num-key.primary-fire .key-num {
+  color: #0369a1;
+}
+
+.num-key.primary-fire .key-sub {
+  color: #0284c7;
+  font-weight: 800;
+}
+
+.num-key.special-weapon .key-sub {
+  color: #e11d48;
+}
+
+/* Parte de baixo */
+.phone-bottom {
+  margin-top: 1rem;
+}
+
+.mic-hole {
+  width: 5px;
+  height: 5px;
+  background: #0f1722;
+  border-radius: 50%;
+  box-shadow: 0 1px 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+/* =====================================================================
+   SIDEBAR PANEL
+   ===================================================================== */
+.sidebar-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 440px;
+}
+
+.info-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+}
+
+.info-card h2 {
+  font-family: var(--font-pixel);
+  font-size: 0.75rem;
+  color: var(--accent-cyan);
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-mapping {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.mapping-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.85rem;
+}
+
+.key-tag {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+.action-desc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Stats Card */
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+}
+
+.digital-val {
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  color: var(--accent-green);
+}
+
+/* Ações */
+.quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.action-btn {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10px;
+  font-family: var(--font-modern);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.5);
+}
+
+.action-btn.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+}
+
+.action-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* =====================================================================
+   MODAL DE AJUDA
+   ===================================================================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.25s ease;
+  padding: 1.5rem;
+}
+
+.modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal-box {
+  background: #151d2a;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 20px;
+  max-width: 540px;
+  width: 100%;
+  padding: 1.75rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.75rem;
+}
+
+.modal-header h3 {
+  font-family: var(--font-pixel);
+  font-size: 0.85rem;
+  color: var(--accent-cyan);
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: white;
+}
+
+.modal-body {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-body h4 {
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+  color: #f59e0b;
+  margin-top: 0.5rem;
+}
+
+.items-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.items-list li {
+  font-size: 0.85rem;
+}
+
+.modal-footer {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-start-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  font-family: var(--font-modern);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-start-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+@media (max-width: 480px) {
+  .phone-wrapper {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
